@@ -1,0 +1,12 @@
+  <ul>
+    <li *ngFor="let todo of todos$ | async">
+      {{ todo.id }} - {{ todo.title }} <button (click)="deleteTodo(todo.id)">Delete</button>
+    </li>
+  </ul>
+
+<form (submit)="addTodo(inputRef.value, $event)">
+  <input
+    #inputRef
+    required>
+  <button>Add</button>
+</form>

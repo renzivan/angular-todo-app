@@ -3,12 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { StoreModule } from '@ngrx/store';
+
+// components
+import { TodoComponent } from './todo/todo.component';
+
+// reducers
+import { todoReducer } from './reducers/todo.reducer';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ todos: todoReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
