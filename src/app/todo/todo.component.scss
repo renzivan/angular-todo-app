@@ -1,0 +1,148 @@
+
+.todo {
+  &__form {
+    background: #FFFFFF;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 52px -18px rgba(0, 0, 0, 0.07);
+  }
+
+  &__list {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    row-gap: 10px;
+
+    &-items {
+      align-items: center;
+      animation: fade-in 500ms;
+      background: white;
+      box-shadow: 0 10px 52px -18px rgba(0, 0, 0, 0.07);
+      display: flex;
+      font-family: 'Inter-Loom';
+      font-size: 18px;
+      padding: 20px;
+      position: relative;
+      text-transform: capitalize;
+
+      &--deleted {
+        animation: fade-out 500ms;
+        opacity: 0;
+      }
+    }
+
+    &-delete {
+      background-color: #F70C4F;
+      border: 0;
+      bottom: 0;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: all 500ms ease-in-out;
+      width: 80px;
+
+      &:hover {  
+        width: 200px;
+      }
+
+      svg {
+        fill: #FFFFFF;
+        width: 24px;
+      }
+    }
+  }
+}
+
+.form {
+  font-family: 'Inter-Loom';
+
+  &-group {
+    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+    position: relative;
+  }
+
+  &-input {
+    &__leading-icon {
+      height: 18px;
+      left: 12px;
+      position: absolute;
+      
+      svg {
+        fill: #A2A8AE;
+      }
+    }
+
+    &__input {
+      border: 1px solid #dee2e6;
+      border-radius: 20px;
+      color: #495057;
+      font-size: 16px;
+      outline: none;
+      padding: 12px 12px 12px 38px;
+
+      &:focus {
+        border: 1px solid #4C9BFA;
+        box-shadow: 0 0 0 .1rem rgba(#4C9BFA, 0.25);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &-submit {
+    background: linear-gradient(90deg, rgba(76,155,250,1) 0%, rgba(7,107,221,1) 100%);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 40px;
+    outline: none;
+    width: 40px;
+
+    &:hover {
+      background: linear-gradient(90deg, rgba(76,155,250,0.9) 0%, rgba(7,107,221,0.9) 100%);
+    }
+    
+    svg {
+      fill: #FFFFFF;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .todo {
+    &__form {
+      padding: 40px 10px;
+    }
+  }
+}

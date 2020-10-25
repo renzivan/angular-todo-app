@@ -16,7 +16,7 @@ const _todoReducer = createReducer(
     ]
   }),
   on(deleteTodo, (state: any, { todoId }) => {
-    let todos = [...state].filter(item => {
+    const todos = [...state].filter(item => {
       return item.id !== todoId
     })
     return todos

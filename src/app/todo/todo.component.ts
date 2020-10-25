@@ -5,11 +5,14 @@ import { addTodo, deleteTodo } from '../actions/todo.actions'
 
 @Component({
   selector: 'app-todo',
-  templateUrl: './todo.component.html'
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.scss']
 })
 
 export class TodoComponent {
   todos$: Observable<any>
+
+  deletedTodoId: number
 
   constructor(private store: Store<{ todos: any }>) {
     this.todos$ = store.select('todos')
@@ -21,6 +24,9 @@ export class TodoComponent {
   }
 
   deleteTodo(id: number) {
-    this.store.dispatch(deleteTodo({ todoId: id }))
+    this.deletedTodoId = id
+    setTimeout(() => {
+      this.store.dispatch(deleteTodo({ todoId: id }))
+    }, 500)
   }
 }
